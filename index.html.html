@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação DISC — Julianne Policante · Psicologia Clínica</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --indigo:   #2C2D5A;
+  --indigo-dk:#1A1B3A;
+  --bordo:    #6B1A2A;
+  --rosa:     #C9506A;
+  --bege:     #F5EDE0;
+  --bege2:    #EDE3D4;
+  --off:      #F8F4EF;
+  --D:        #2C2D5A;
+  --I:        #C9506A;
+  --S:        #4A7C59;
+  --C:        #7A5230;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--off);
+  font-family: var(--sans);
+  color: var(--indigo);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.header {
+  background: var(--indigo);
+  padding: 40px 32px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--rosa);
+}
+.header-brand {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(245,237,224,.45);
+  margin-bottom: 10px;
+}
+.header h1 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 300;
+  color: var(--bege);
+  line-height: 1.15;
+}
+.header h1 em { color: var(--rosa); font-style: italic; font-weight: 300; }
+.header-sub {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(245,237,224,.5);
+  margin-top: 8px;
+  letter-spacing: .5px;
+}
+
+/* ── CONTAINER ── */
+.container { max-width: 780px; margin: 0 auto; padding: 0 20px 80px; }
+
+/* ── INTRO ── */
+.intro {
+  background: var(--bege);
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin: 32px 0;
+  border-left: 3px solid var(--indigo);
+}
+.intro h2 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--indigo);
+  margin-bottom: 10px;
+}
+.intro p {
+  font-size: 13px;
+  font-weight: 300;
+  color: #5A4A58;
+  line-height: 1.8;
+}
+
+/* ── DADOS PESSOAIS ── */
+.personal-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  border: .5px solid var(--bege2);
+}
+.personal-card h3 {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: .5px solid var(--bege2);
+}
+.fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--indigo);
+  opacity: .6;
+}
+.field input {
+  border: .5px solid var(--bege2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--indigo);
+  background: var(--off);
+  outline: none;
+  transition: border-color .2s;
+}
+.field input:focus { border-color: var(--indigo); background: #fff; }
+
+/* ── BLOCOS DE QUESTÕES ── */
+.block {
+  background: #fff;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: .5px solid var(--bege2);
+}
+.block-header {
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: .5px solid var(--bege2);
+}
+.block-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.block-title {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--indigo);
+  line-height: 1.4;
+}
+.block-sub {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 300;
+  color: #999;
+}
+
+/* ── OPÇÕES DE CADA QUESTÃO ── */
+.options { padding: 20px 28px; display: flex; flex-direction: column; gap: 10px; }
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all .18s;
+  background: var(--off);
+}
+.option:hover { border-color: var(--indigo); background: var(--bege); }
+.option input[type="radio"] { display: none; }
+.option.selected { border-color: var(--indigo); background: var(--bege); }
+.radio-dot {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .18s;
+}
+.option.selected .radio-dot {
+  border-color: var(--indigo);
+  background: var(--indigo);
+}
+.radio-dot::after {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0;
+  transition: opacity .18s;
+}
+.option.selected .radio-dot::after { opacity: 1; }
+.option-label {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--indigo);
+  line-height: 1.5;
+}
+.disc-badge {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  opacity: 0; /* oculto por padrão, visível só pro psicólogo se quiser inspecionar */
+}
+
+/* ── PROGRESSO ── */
+.progress-wrap {
+  position: sticky;
+  top: 0; z-index: 100;
+  background: rgba(248,244,239,.95);
+  backdrop-filter: blur(8px);
+  padding: 10px 0;
+  border-bottom: .5px solid var(--bege2);
+}
+.progress-inner { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+.progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.progress-label { font-size: 10px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; color: #999; }
+.progress-count { font-family: var(--serif); font-size: 16px; font-weight: 300; color: var(--indigo); }
+.progress-bar { height: 3px; background: var(--bege2); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--indigo); border-radius: 2px; transition: width .4s ease; width: 0%; }
+
+/* ── BOTÃO CALCULAR ── */
+.btn-wrap { text-align: center; margin: 36px 0 0; }
+.btn-calc {
+  background: var(--indigo);
+  color: var(--bege);
+  border: none;
+  border-radius: 10px;
+  padding: 16px 40px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.btn-calc:hover { background: var(--indigo-dk); transform: translateY(-1px); }
+.btn-calc:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+.btn-warn {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--rosa);
+  margin-top: 10px;
+  display: none;
+}
+
+/* ── RESULTADO ── */
+#resultado {
+  display: none;
+  margin-top: 48px;
+  animation: fadeUp .5s ease;
+}
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+.result-header {
+  background: var(--indigo);
+  border-radius: 14px 14px 0 0;
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.result-header::after { content:''; position:absolute; bottom:0;left:0;width:100%;height:2px;background:var(--rosa); }
+.result-title-sm {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(245,237,224,.4);
+  margin-bottom: 6px;
+}
+.result-name {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--bege);
+}
+.result-name span { color: var(--rosa); font-style: italic; }
+.result-date {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(245,237,224,.35);
+  margin-top: 4px;
+}
+
+/* ── GRÁFICO DE BARRAS ── */
+.chart-card {
+  background: #fff;
+  border: .5px solid var(--bege2);
+  padding: 28px 32px;
+}
+.chart-title {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 24px;
+}
+.bars { display: flex; flex-direction: column; gap: 16px; }
+.bar-row { display: grid; grid-template-columns: 28px 1fr 36px; align-items: center; gap: 12px; }
+.bar-letter {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+.bar-track {
+  height: 10px;
+  background: var(--bege2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1s cubic-bezier(.4,0,.2,1);
+  width: 0%;
+}
+.bar-score {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: right;
+}
+
+/* ── PERFIL DOMINANTE ── */
+.perfil-card {
+  border: .5px solid var(--bege2);
+  padding: 28px 32px;
+  background: var(--bege);
+}
+.perfil-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.perfil-letra {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+}
+.perfil-nome {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--indigo);
+}
+.perfil-subtitulo {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 300;
+  color: #999;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.perfil-descricao {
+  font-size: 13px;
+  font-weight: 300;
+  color: #5A4A58;
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.perfil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.perfil-bloco {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.perfil-bloco-title {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-bottom: 8px;
+}
+.perfil-bloco ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.perfil-bloco ul li {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--indigo);
+  line-height: 1.5;
+  padding-left: 12px;
+  position: relative;
+}
+.perfil-bloco ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--rosa);
+  font-size: 10px;
+}
+
+/* ── TABELA DE PONTUAÇÃO ── */
+.score-table-card {
+  background: #fff;
+  border: .5px solid var(--bege2);
+  padding: 28px 32px;
+}
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.score-table th {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #bbb;
+  padding: 0 0 10px;
+  text-align: left;
+  border-bottom: .5px solid var(--bege2);
+}
+.score-table td {
+  padding: 10px 0;
+  border-bottom: .5px solid var(--off);
+  font-weight: 300;
+  color: var(--indigo);
+  vertical-align: middle;
+}
+.score-table td:last-child { text-align: right; }
+.disc-pill {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  color: #fff;
+}
+
+/* ── OBSERVAÇÕES ── */
+.obs-card {
+  background: #fff;
+  border: .5px solid var(--bege2);
+  padding: 28px 32px;
+  border-radius: 0 0 14px 14px;
+}
+.obs-card h3 {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 12px;
+}
+.obs-card textarea {
+  width: 100%;
+  min-height: 100px;
+  border: .5px solid var(--bege2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--indigo);
+  background: var(--off);
+  resize: vertical;
+  outline: none;
+  transition: border-color .2s;
+  line-height: 1.7;
+}
+.obs-card textarea:focus { border-color: var(--indigo); background: #fff; }
+
+/* ── AÇÕES RESULTADO ── */
+.result-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.btn-print {
+  background: var(--bordo);
+  color: var(--bege);
+  border: none;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-print:hover { opacity: .88; transform: translateY(-1px); }
+.btn-reset {
+  background: transparent;
+  color: var(--indigo);
+  border: 1px solid var(--indigo);
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all .2s;
+  opacity: .6;
+}
+.btn-reset:hover { opacity: 1; }
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 10px;
+  font-weight: 300;
+  color: #bbb;
+  letter-spacing: .5px;
+  border-top: .5px solid var(--bege2);
+  margin-top: 64px;
+}
+
+/* ── PRINT ── */
+@media print {
+  .progress-wrap, .btn-wrap, .result-actions, .header { display: none !important; }
+  #resultado { display: block !important; }
+  body { background: #fff; }
+  .container { max-width: 100%; padding: 0 20px; }
+  .block { page-break-inside: avoid; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .fields-row { grid-template-columns: 1fr; }
+  .perfil-grid { grid-template-columns: 1fr; }
+  .block-header { padding: 14px 18px; }
+  .options { padding: 14px 18px; }
+  .result-header, .chart-card, .perfil-card, .score-table-card, .obs-card { padding: 20px 18px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <p class="header-brand">Julianne Policante · Psicologia Clínica</p>
+  <h1>Avaliação de Perfil <em>DISC</em></h1>
+  <p class="header-sub">Instrumento de autoconhecimento comportamental · 28 questões</p>
+</header>
+
+<!-- PROGRESSO FIXO -->
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-row">
+      <span class="progress-label">Progresso</span>
+      <span class="progress-count"><span id="answered">0</span> de 28</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro">
+    <h2>Como responder</h2>
+    <p>Para cada grupo de afirmativas abaixo, escolha a opção que <strong>melhor descreve como você age ou se sente na maior parte do tempo</strong> — não como gostaria de ser, mas como realmente é. Não há respostas certas ou erradas. Seja espontânea e escolha apenas uma opção por questão.</p>
+  </div>
+
+  <!-- DADOS PESSOAIS -->
+  <div class="personal-card">
+    <h3>Dados da avaliação</h3>
+    <div class="fields-row">
+      <div class="field">
+        <label>Nome completo</label>
+        <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name">
+      </div>
+      <div class="field">
+        <label>Data</label>
+        <input type="text" id="data" placeholder="DD/MM/AAAA">
+      </div>
+    </div>
+  </div>
+
+  <!-- QUESTÕES -->
+  <div id="questoes"></div>
+
+  <!-- BOTÃO -->
+  <div class="btn-wrap">
+    <button class="btn-calc" id="btnCalc" onclick="calcular()">Ver meu resultado</button>
+    <p class="btn-warn" id="btnWarn">Por favor, responda todas as 28 questões antes de continuar.</p>
+  </div>
+
+  <!-- RESULTADO -->
+  <div id="resultado">
+    <div class="result-header">
+      <p class="result-title-sm">Resultado da avaliação DISC</p>
+      <p class="result-name">Perfil de <span id="resNome">—</span></p>
+      <p class="result-date" id="resData"></p>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">Distribuição de pontuação por fator</p>
+      <div class="bars">
+        <div class="bar-row">
+          <span class="bar-letter" style="color:var(--D)">D</span>
+          <div class="bar-track"><div class="bar-fill" id="barD" style="background:var(--D)"></div></div>
+          <span class="bar-score" id="scoreD" style="color:var(--D)">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-letter" style="color:var(--I)">I</span>
+          <div class="bar-track"><div class="bar-fill" id="barI" style="background:var(--I)"></div></div>
+          <span class="bar-score" id="scoreI" style="color:var(--I)">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-letter" style="color:var(--S)">S</span>
+          <div class="bar-track"><div class="bar-fill" id="barS" style="background:var(--S)"></div></div>
+          <span class="bar-score" id="scoreS" style="color:var(--S)">0</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-letter" style="color:var(--C)">C</span>
+          <div class="bar-track"><div class="bar-fill" id="barC" style="background:var(--C)"></div></div>
+          <span class="bar-score" id="scoreC" style="color:var(--C)">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="perfil-card" id="perfilCard">
+      <div class="perfil-badge">
+        <div class="perfil-letra" id="perfilLetra"></div>
+        <div>
+          <p class="perfil-nome" id="perfilNome"></p>
+          <p class="perfil-subtitulo" id="perfilSub"></p>
+        </div>
+      </div>
+      <p class="perfil-descricao" id="perfilDesc"></p>
+      <div class="perfil-grid" id="perfilGrid"></div>
+    </div>
+
+    <div class="score-table-card">
+      <p class="chart-title">Revisão detalhada das respostas</p>
+      <table class="score-table">
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Afirmativa respondida</th>
+            <th>Fator</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaRespostas"></tbody>
+      </table>
+    </div>
+
+    <div class="obs-card">
+      <h3>Observações clínicas</h3>
+      <textarea placeholder="Anotações, impressões clínicas ou contexto adicional sobre esta avaliação…"></textarea>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn-print" onclick="window.print()">Imprimir / Salvar PDF</button>
+      <button class="btn-reset" onclick="resetar()">Nova avaliação</button>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  Julianne Policante · Psicologia Clínica · Instrumento DISC para uso profissional interno
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+// BANCO DE QUESTÕES DISC — 28 blocos
+// Cada bloco tem 4 opções (D, I, S, C)
+// ══════════════════════════════════════════════
+const questoes = [
+  {
+    titulo: "Quando preciso alcançar um objetivo, costumo...",
+    opcoes: [
+      { texto: "Agir com determinação e ir direto ao ponto, sem hesitar.", fator: "D" },
+      { texto: "Motivar as pessoas ao meu redor e criar entusiasmo.", fator: "I" },
+      { texto: "Planejar com calma e garantir que todos estejam alinhados.", fator: "S" },
+      { texto: "Analisar cada detalhe antes de tomar qualquer decisão.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Em situações de conflito, minha tendência é...",
+    opcoes: [
+      { texto: "Enfrentar diretamente e buscar resolver logo.", fator: "D" },
+      { texto: "Tentar amenizar a situação com diálogo e bom humor.", fator: "I" },
+      { texto: "Mediar, ouvir todos os lados e buscar harmonia.", fator: "S" },
+      { texto: "Avaliar os fatos objetivamente antes de me posicionar.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "No trabalho ou em projetos, o que mais me motiva é...",
+    opcoes: [
+      { texto: "Ter controle, autonomia e ver resultados rápidos.", fator: "D" },
+      { texto: "Trabalhar com pessoas, ser reconhecida e ter liberdade criativa.", fator: "I" },
+      { texto: "Colaborar, ter estabilidade e saber que contribuo para a equipe.", fator: "S" },
+      { texto: "Fazer tudo com precisão, qualidade e seguir processos claros.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando recebo uma crítica, normalmente...",
+    opcoes: [
+      { texto: "Ouço brevemente e sigo em frente — foco no resultado.", fator: "D" },
+      { texto: "Fico sensível no primeiro momento, mas me recupero rápido.", fator: "I" },
+      { texto: "Levo para o coração e levo tempo para processar.", fator: "S" },
+      { texto: "Avalio se a crítica tem embasamento antes de aceitar.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Em reuniões ou grupos, costumo...",
+    opcoes: [
+      { texto: "Tomar a liderança e direcionar as discussões.", fator: "D" },
+      { texto: "Falar bastante, animar o grupo e trazer ideias novas.", fator: "I" },
+      { texto: "Ouvir com atenção e contribuir quando necessário.", fator: "S" },
+      { texto: "Fazer perguntas precisas e checar se tudo está correto.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "As pessoas que convivem comigo geralmente me descrevem como...",
+    opcoes: [
+      { texto: "Determinada, objetiva e às vezes impaciente.", fator: "D" },
+      { texto: "Comunicativa, animada e espontânea.", fator: "I" },
+      { texto: "Calma, confiável e prestativa.", fator: "S" },
+      { texto: "Perfeccionista, analítica e cautelosa.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando enfrento uma decisão difícil, eu...",
+    opcoes: [
+      { texto: "Decido rapidamente com base na intuição e no objetivo.", fator: "D" },
+      { texto: "Converso com outras pessoas para sentir a situação.", fator: "I" },
+      { texto: "Tomo tempo para considerar como a decisão afeta todos.", fator: "S" },
+      { texto: "Levanto dados, pesquiso e analiso antes de decidir.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Minha maior fonte de estresse é...",
+    opcoes: [
+      { texto: "Perder o controle ou ter meu tempo desperdiçado.", fator: "D" },
+      { texto: "Ser excluída, ignorada ou trabalhar sozinha.", fator: "I" },
+      { texto: "Mudanças inesperadas ou ambientes instáveis.", fator: "S" },
+      { texto: "Cometer erros ou trabalhar sem diretrizes claras.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "No meu ritmo de trabalho, sou naturalmente...",
+    opcoes: [
+      { texto: "Acelerada, focada em resultados e com senso de urgência.", fator: "D" },
+      { texto: "Cheia de energia e vários projetos ao mesmo tempo.", fator: "I" },
+      { texto: "Constante, metódica e prefiro acabar o que comecei.", fator: "S" },
+      { texto: "Detalhista e prefiro qualidade a velocidade.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando alguém demora para agir ou decide devagar, eu...",
+    opcoes: [
+      { texto: "Fico impaciente e prefiro assumir o controle.", fator: "D" },
+      { texto: "Tento energizá-la ou proponho algo para animar.", fator: "I" },
+      { texto: "Respeito o ritmo dela e ofereço apoio.", fator: "S" },
+      { texto: "Entendo — análise leva tempo e é necessária.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Para mim, liderar significa...",
+    opcoes: [
+      { texto: "Tomar decisões, definir o rumo e cobrar resultados.", fator: "D" },
+      { texto: "Inspirar, engajar e trazer as pessoas para o mesmo sonho.", fator: "I" },
+      { texto: "Apoiar, ouvir e garantir que todos se sintam seguros.", fator: "S" },
+      { texto: "Criar estruturas claras, processos eficientes e padrões de qualidade.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando começo algo novo, minha primeira reação é...",
+    opcoes: [
+      { texto: "Partir para ação — o plano vai surgindo no caminho.", fator: "D" },
+      { texto: "Compartilhar a novidade com todo mundo e criar expectativa.", fator: "I" },
+      { texto: "Entender bem antes de começar e buscar apoio da equipe.", fator: "S" },
+      { texto: "Pesquisar, planejar detalhadamente e só então executar.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "A palavra que melhor resume meu jeito de ser é...",
+    opcoes: [
+      { texto: "Assertiva.", fator: "D" },
+      { texto: "Entusiasta.", fator: "I" },
+      { texto: "Leal.", fator: "S" },
+      { texto: "Meticulosa.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Em relação a regras e procedimentos, eu...",
+    opcoes: [
+      { texto: "Prefiro ter flexibilidade — regras me parecem obstáculos.", fator: "D" },
+      { texto: "Sigo se fizerem sentido, mas prefiro improviso criativo.", fator: "I" },
+      { texto: "Sigo as regras estabelecidas para manter a harmonia.", fator: "S" },
+      { texto: "Valorizo muito — regras garantem qualidade e segurança.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando tenho que apresentar uma ideia, eu prefiro...",
+    opcoes: [
+      { texto: "Ir direto ao ponto, sem rodeios e com clareza.", fator: "D" },
+      { texto: "Contar uma história envolvente que conecte as pessoas.", fator: "I" },
+      { texto: "Apresentar com calma e garantir que todos entendam.", fator: "S" },
+      { texto: "Usar dados, exemplos concretos e argumentação sólida.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando estou sob pressão, costumo...",
+    opcoes: [
+      { texto: "Focar mais, acelerar e resolver logo.", fator: "D" },
+      { texto: "Buscar pessoas para dividir a situação e aliviar.", fator: "I" },
+      { texto: "Ficar quieta, processar internamente e manter a calma.", fator: "S" },
+      { texto: "Ser ainda mais detalhista para não cometer erros.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Em relacionamentos, o que mais valorizo é...",
+    opcoes: [
+      { texto: "Respeito mútuo, objetividade e sem draminha.", fator: "D" },
+      { texto: "Alegria, conexão emocional e muito diálogo.", fator: "I" },
+      { texto: "Lealdade, segurança e estabilidade.", fator: "S" },
+      { texto: "Honestidade, comprometimento e profundidade.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Ao aprender algo novo, prefiro...",
+    opcoes: [
+      { texto: "Tentar logo na prática e aprender com os erros.", fator: "D" },
+      { texto: "Aprender em grupo, com troca de experiências.", fator: "I" },
+      { texto: "Aprender no meu ritmo, com orientação clara.", fator: "S" },
+      { texto: "Estudar a teoria a fundo antes de aplicar.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Minha maior força natural é...",
+    opcoes: [
+      { texto: "Fazer as coisas acontecerem — mesmo sem apoio.", fator: "D" },
+      { texto: "Influenciar e motivar as pessoas ao meu redor.", fator: "I" },
+      { texto: "Criar ambientes de confiança e manter a equipe unida.", fator: "S" },
+      { texto: "Garantir que tudo seja feito com rigor e qualidade.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando percebo que errei, minha reação é...",
+    opcoes: [
+      { texto: "Reconheço rápido e já parto para corrigir.", fator: "D" },
+      { texto: "Peço desculpas, busco apoio e sigo em frente.", fator: "I" },
+      { texto: "Sinto muito internamente e me preocupo com quem afetei.", fator: "S" },
+      { texto: "Analiso o que deu errado para nunca mais repetir.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "No ambiente que trabalho ou estudo, prefiro...",
+    opcoes: [
+      { texto: "Liberdade, autonomia e metas desafiadoras.", fator: "D" },
+      { texto: "Ambiente animado, colaborativo e com espaço para criatividade.", fator: "I" },
+      { texto: "Ambiente estável, previsível e com relacionamentos duradouros.", fator: "S" },
+      { texto: "Ambiente organizado, com processos claros e foco em qualidade.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando preciso resolver algo urgente, eu...",
+    opcoes: [
+      { texto: "Ajo imediatamente, mesmo sem ter tudo planejado.", fator: "D" },
+      { texto: "Mobilizo pessoas para resolver juntos.", fator: "I" },
+      { texto: "Avalio o impacto em todos antes de agir.", fator: "S" },
+      { texto: "Reúno as informações necessárias para agir com precisão.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Uma coisa que as pessoas às vezes dizem que eu exagero é...",
+    opcoes: [
+      { texto: "Ser muito direta ou controladora.", fator: "D" },
+      { texto: "Falar demais ou ser dispersa.", fator: "I" },
+      { texto: "Ser passiva ou evitar conflitos.", fator: "S" },
+      { texto: "Ser perfeccionista ou crítica demais.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "No meu tempo livre, prefiro...",
+    opcoes: [
+      { texto: "Atividades que me desafiem e me tirem da zona de conforto.", fator: "D" },
+      { texto: "Estar com pessoas, socializar e me divertir.", fator: "I" },
+      { texto: "Atividades tranquilas, rotineiras e com quem amo.", fator: "S" },
+      { texto: "Aprender algo novo, pesquisar ou me aprofundar em um tema.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando alguém precisa de mim, minha primeira resposta é...",
+    opcoes: [
+      { texto: "Avaliar se tenho tempo e se faz sentido para mim.", fator: "D" },
+      { texto: "Dizer sim com entusiasmo e ajudar com energia.", fator: "I" },
+      { texto: "Deixar tudo e priorizar a pessoa — não consigo dizer não.", fator: "S" },
+      { texto: "Entender bem o problema antes de me comprometer.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Quando tenho que esperar por um resultado, eu...",
+    opcoes: [
+      { texto: "Fico impaciente e prefiro acelerar o processo.", fator: "D" },
+      { texto: "Fico ansiosa e falo bastante sobre isso.", fator: "I" },
+      { texto: "Espero com paciência — confio no processo.", fator: "S" },
+      { texto: "Analiso o que posso fazer para antecipar ou controlar o resultado.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "Minha relação com mudanças é...",
+    opcoes: [
+      { texto: "Adoro — mudança significa oportunidade.", fator: "D" },
+      { texto: "Abraço com entusiasmo, especialmente se for algo novo e empolgante.", fator: "I" },
+      { texto: "Prefiro estabilidade, mas me adapto quando necessário.", fator: "S" },
+      { texto: "Aceito se houver planejamento e clareza sobre os impactos.", fator: "C" }
+    ]
+  },
+  {
+    titulo: "No fundo, o que mais me move é...",
+    opcoes: [
+      { texto: "Conquistar, vencer desafios e deixar minha marca.", fator: "D" },
+      { texto: "Conectar pessoas, ser amada e fazer a diferença na vida de alguém.", fator: "I" },
+      { texto: "Contribuir, ser útil e saber que as pessoas podem contar comigo.", fator: "S" },
+      { texto: "Fazer bem feito, com excelência e integridade.", fator: "C" }
+    ]
+  }
+];
+
+// ── DADOS DOS PERFIS ──
+const perfis = {
+  D: {
+    nome: "Dominância",
+    subtitulo: "Perfil D — Orientado a resultados e controle",
+    cor: "#2C2D5A",
+    descricao: "Pessoas com perfil Dominante são movidas por resultados, desafios e autonomia. Tomam decisões com rapidez, gostam de estar no controle e preferem ambientes onde possam agir com independência. São diretas, objetivas e altamente orientadas para a execução — às vezes podendo parecer impacientes ou autoritárias para perfis mais relacionais.",
+    pontos_fortes: ["Determinação e foco em resultados", "Tomada de decisão rápida", "Liderança natural em situações de crise", "Alta energia e iniciativa", "Capacidade de superar obstáculos"],
+    pontos_atencao: ["Tendência a ignorar as emoções alheias", "Impaciência com processos lentos", "Dificuldade em delegar com confiança", "Pode ser percebida como fria ou controladora", "Resistência a feedbacks negativos"]
+  },
+  I: {
+    nome: "Influência",
+    subtitulo: "Perfil I — Orientado a pessoas e entusiasmo",
+    cor: "#C9506A",
+    descricao: "Pessoas com perfil de Influência são comunicativas, entusiastas e naturalmente carismáticas. Prosperam em ambientes sociais, têm facilidade para motivar os outros e são criativas na resolução de problemas. Valorizam o reconhecimento e a conexão emocional, podendo ter dificuldades com tarefas solitárias, rotinas e prazos rígidos.",
+    pontos_fortes: ["Comunicação persuasiva e empática", "Capacidade de inspirar e motivar", "Criatividade e pensamento inovador", "Facilidade em criar conexões", "Entusiasmo contagiante"],
+    pontos_atencao: ["Pode ser dispersa ou impulsiva", "Dificuldade em manter o foco em tarefas longas", "Tendência a evitar conflitos diretos", "Pode superestimar o comprometimento dos outros", "Sensibilidade excessiva à crítica"]
+  },
+  S: {
+    nome: "Estabilidade",
+    subtitulo: "Perfil S — Orientado a pessoas e processos",
+    cor: "#4A7C59",
+    descricao: "Pessoas com perfil de Estabilidade são leais, pacientes e profundamente comprometidas com quem amam e com os grupos que pertencem. São excelentes ouvintes, criam ambientes seguros e são a 'cola' dos grupos. Valorizam a previsibilidade, a harmonia e a consistência — podendo ter dificuldades com mudanças abruptas e situações de conflito.",
+    pontos_fortes: ["Lealdade e consistência exemplares", "Excelente capacidade de escuta", "Paciência e equilíbrio emocional", "Habilidade em criar harmonia", "Comprometimento profundo com as pessoas"],
+    pontos_atencao: ["Dificuldade em lidar com mudanças repentinas", "Tendência a ceder para evitar conflito", "Pode acumular ressentimentos sem verbalizar", "Dificuldade em estabelecer limites", "Resistência a sair da zona de conforto"]
+  },
+  C: {
+    nome: "Conformidade",
+    subtitulo: "Perfil C — Orientado a qualidade e precisão",
+    cor: "#7A5230",
+    descricao: "Pessoas com perfil de Conformidade (ou Conscienciosidade) são analíticas, meticulosas e comprometidas com a excelência. Antes de agir, pesquisam, planejam e verificam — para elas, qualidade é inegociável. São excelentes em ambientes que exigem precisão e pensamento crítico, mas podem ter dificuldades com ambiguidade, mudanças rápidas e tomada de decisão sem dados suficientes.",
+    pontos_fortes: ["Pensamento analítico e crítico apurado", "Alta capacidade de planejamento", "Comprometimento com qualidade e precisão", "Confiabilidade e rigor intelectual", "Habilidade em identificar riscos e falhas"],
+    pontos_atencao: ["Tendência ao perfeccionismo paralisante", "Dificuldade em tomar decisões sob incerteza", "Pode ser excessivamente crítica consigo e com os outros", "Dificuldade em delegar — ninguém faz tão bem quanto ela", "Resistência à ambiguidade e ao imprevisto"]
+  }
+};
+
+// ══════════════════════════════════════════════
+// RENDERIZAR QUESTÕES
+// ══════════════════════════════════════════════
+const container = document.getElementById('questoes');
+const respostas = {};
+
+function shuffle(arr) {
+  // embaralha as opções para não enviesar a resposta
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// guardamos as opções embaralhadas para revisão posterior
+const opcoesEmbaralhadas = [];
+
+questoes.forEach((q, qi) => {
+  const shuffled = shuffle(q.opcoes);
+  opcoesEmbaralhadas[qi] = shuffled;
+
+  const block = document.createElement('div');
+  block.className = 'block';
+  block.id = `bloco-${qi}`;
+
+  let optsHtml = '';
+  shuffled.forEach((op, oi) => {
+    optsHtml += `
+      <label class="option" id="opt-${qi}-${oi}" onclick="selecionar(${qi}, ${oi}, '${op.fator}', this)">
+        <input type="radio" name="q${qi}" value="${op.fator}">
+        <div class="radio-dot"></div>
+        <span class="option-label">${op.texto}</span>
+        <span class="disc-badge">${op.fator}</span>
+      </label>`;
+  });
+
+  block.innerHTML = `
+    <div class="block-header">
+      <div class="block-num" style="background:var(--bege2);color:var(--indigo);">${qi + 1}</div>
+      <div>
+        <p class="block-title">${q.titulo}</p>
+        <p class="block-sub">Escolha a afirmativa que mais representa você</p>
+      </div>
+    </div>
+    <div class="options">${optsHtml}</div>`;
+
+  container.appendChild(block);
+});
+
+// ── SELECIONAR OPÇÃO ──
+function selecionar(qi, oi, fator, el) {
+  // limpa seleções do bloco
+  const block = document.getElementById(`bloco-${qi}`);
+  block.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  respostas[qi] = { fator, oi, texto: opcoesEmbaralhadas[qi][oi].texto };
+  atualizarProgresso();
+}
+
+// ── PROGRESSO ──
+function atualizarProgresso() {
+  const total = Object.keys(respostas).length;
+  document.getElementById('answered').textContent = total;
+  document.getElementById('progressFill').style.width = `${(total / 28) * 100}%`;
+}
+
+// ── DATA AUTOMÁTICA ──
+window.addEventListener('DOMContentLoaded', () => {
+  const hoje = new Date();
+  const dd = String(hoje.getDate()).padStart(2,'0');
+  const mm = String(hoje.getMonth()+1).padStart(2,'0');
+  const yyyy = hoje.getFullYear();
+  document.getElementById('data').value = `${dd}/${mm}/${yyyy}`;
+});
+
+// ══════════════════════════════════════════════
+// CALCULAR RESULTADO
+// ══════════════════════════════════════════════
+function calcular() {
+  const totalRespondidas = Object.keys(respostas).length;
+  if (totalRespondidas < 28) {
+    document.getElementById('btnWarn').style.display = 'block';
+    // scroll até a primeira não respondida
+    for (let i = 0; i < 28; i++) {
+      if (!respostas[i]) {
+        document.getElementById(`bloco-${i}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        break;
+      }
+    }
+    return;
+  }
+  document.getElementById('btnWarn').style.display = 'none';
+
+  // contagem
+  const scores = { D: 0, I: 0, S: 0, C: 0 };
+  Object.values(respostas).forEach(r => scores[r.fator]++);
+
+  const max = Math.max(...Object.values(scores));
+  const dominante = Object.keys(scores).find(k => scores[k] === max);
+
+  // nome e data
+  const nome = document.getElementById('nome').value || 'Avaliado(a)';
+  const data = document.getElementById('data').value;
+  document.getElementById('resNome').textContent = nome;
+  document.getElementById('resData').textContent = `Avaliação realizada em ${data}`;
+
+  // barras
+  ['D','I','S','C'].forEach(f => {
+    document.getElementById(`score${f}`).textContent = scores[f];
+    setTimeout(() => {
+      document.getElementById(`bar${f}`).style.width = `${(scores[f] / 28) * 100}%`;
+    }, 100);
+  });
+
+  // perfil dominante
+  const p = perfis[dominante];
+  document.getElementById('perfilLetra').textContent = dominante;
+  document.getElementById('perfilLetra').style.background = p.cor;
+  document.getElementById('perfilNome').textContent = p.nome;
+  document.getElementById('perfilSub').textContent = p.subtitulo;
+  document.getElementById('perfilDesc').textContent = p.descricao;
+
+  document.getElementById('perfilGrid').innerHTML = `
+    <div class="perfil-bloco">
+      <p class="perfil-bloco-title">Pontos fortes</p>
+      <ul>${p.pontos_fortes.map(x => `<li>${x}</li>`).join('')}</ul>
+    </div>
+    <div class="perfil-bloco">
+      <p class="perfil-bloco-title">Pontos de atenção</p>
+      <ul>${p.pontos_atencao.map(x => `<li>${x}</li>`).join('')}</ul>
+    </div>`;
+
+  // tabela de respostas
+  const cores = { D: 'var(--D)', I: 'var(--rosa)', S: '#4A7C59', C: '#7A5230' };
+  let rows = '';
+  for (let i = 0; i < 28; i++) {
+    const r = respostas[i];
+    rows += `<tr>
+      <td style="color:#bbb;font-size:11px;">${i+1}</td>
+      <td>${r.texto}</td>
+      <td><span class="disc-pill" style="background:${cores[r.fator]}">${r.fator}</span></td>
+    </tr>`;
+  }
+  document.getElementById('tabelaRespostas').innerHTML = rows;
+
+  // mostrar resultado
+  const res = document.getElementById('resultado');
+  res.style.display = 'block';
+  setTimeout(() => res.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+}
+
+// ── RESETAR ──
+function resetar() {
+  if (!confirm('Tem certeza que deseja iniciar uma nova avaliação? As respostas atuais serão apagadas.')) return;
+  Object.keys(respostas).forEach(k => delete respostas[k]);
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  document.getElementById('nome').value = '';
+  document.getElementById('answered').textContent = '0';
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('resultado').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
